@@ -1,0 +1,159 @@
+body {
+  background: url("img/library.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.wrapper {
+  width: 96%;
+  margin: 40px auto;
+  position: relative;
+}
+
+.wrapper .theme {
+  float: left;
+  width: 45%;
+}
+
+.wrapper .theme h1 {
+  color: #DDDDDD;
+  font-size: 56px;
+}
+
+.wrapper .theme p {
+  margin-top: 15px;
+  color: #DDDDDD;
+}
+
+.wrapper .theme p q {
+  font-style: italic;
+  font-size: 30px;
+  color: #DDDDDD;
+}
+
+.wrapper .theme #add-new-book {
+  margin: 15px 0;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 200px;
+  background-color: #DDDDDD;
+  opacity: 0.9;
+  -webkit-box-shadow: 0px 0px 15px 3px #414741;
+          box-shadow: 0px 0px 15px 3px #414741;
+}
+
+.wrapper .theme #search {
+  margin: 15px 0;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  width: 200px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #DDDDDD;
+  opacity: 0.9;
+  -webkit-box-shadow: 0px 0px 15px 3px #414741;
+          box-shadow: 0px 0px 15px 3px #414741;
+}
+
+.wrapper .books-container {
+  float: right;
+  width: 54%;
+  height: 600px;
+}
+
+.wrapper:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrapper .input-form {
+  width: 400px;
+  height: 540px;
+  border: 1px #DDDDDD solid;
+  border-radius: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #DDDDDD;
+  opacity: 0.9;
+  -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
+          box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
+}
+
+.wrapper .input-form form {
+  margin: 30px 15px;
+}
+
+.wrapper .input-form form label {
+  display: block;
+  width: 60%;
+  font-size: 22px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.wrapper .input-form form .read-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper .input-form form .read-container #read-label, .wrapper .input-form form .read-container #read {
+  display: inline-block;
+  width: 50px;
+  margin: 0;
+  padding: 2px 6px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.wrapper .input-form form input {
+  display: block;
+  width: 80%;
+  height: 30px;
+  font-size: 14px;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 15px 3px #414741;
+          box-shadow: 0px 0px 15px 3px #414741;
+}
+
+.wrapper .input-form form button {
+  width: 60%;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  font-size: 20px;
+  padding: 8px 4px;
+  border: none;
+  border-radius: 5px;
+}
+
+.wrapper .input-form form #submit {
+  -webkit-box-shadow: 0px 0px 15px 3px #28701d;
+          box-shadow: 0px 0px 15px 3px #28701d;
+}
+
+.wrapper .input-form form #cancel {
+  -webkit-box-shadow: 0px 0px 15px 3px #d91821;
+          box-shadow: 0px 0px 15px 3px #d91821;
+}
+/*# sourceMappingURL=styles.css.map */

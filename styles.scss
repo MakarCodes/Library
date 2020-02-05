@@ -1,0 +1,150 @@
+$themeColor: #DDDDDD;
+
+@mixin clearFix{
+    &:after{
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+body {
+    background: url("img/library.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+   }
+
+.wrapper {
+    width: 96%;
+    margin: 40px auto;
+    position: relative;
+
+    .theme{
+        float: left;
+        width: 45%;
+        h1 {
+            color: $themeColor;
+            font-size: 56px;
+        }
+        p{
+            margin-top: 15px;
+            color: $themeColor;
+            q {
+                font-style: italic;
+                font-size: 30px;
+                color: $themeColor;
+            }
+        }
+        #add-new-book {
+            margin: 15px 0;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            width: 200px;
+            background-color: $themeColor;
+            opacity: 0.9;
+            box-shadow: 0px 0px 15px 3px rgb(65, 71, 65);
+        }
+
+        #search {
+            margin: 15px 0;
+            padding: 12px 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            width: 200px;
+            box-sizing: border-box;
+            background-color: $themeColor;
+            opacity: 0.9;
+            box-shadow: 0px 0px 15px 3px rgb(65, 71, 65);
+        }
+       
+    }
+    .books-container {
+        float: right;
+        width: 54%;
+        height: 600px;
+    }
+
+    @include clearFix;
+  
+    .input-form{
+        width: 400px;
+        height: 540px;
+        border: 1px $themeColor solid;
+        border-radius: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $themeColor;
+        opacity: 0.9;
+        box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.61);
+        // display: none;
+
+        form{
+            margin: 30px 15px;
+            
+            label{
+                display: block;
+                width: 60%;
+                font-size: 22px;
+                margin: 0 auto;
+                margin-bottom: 12px;
+                text-align: center;
+            }
+
+            .read-container{
+                display: flex;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: center;
+                
+                #read-label, #read{
+                   display: inline-block;
+                   width: 50px;
+                   margin: 0;
+                   padding: 2px 6px;
+                   box-shadow: none;
+                }
+            }
+        
+
+            input{
+                display: block;
+                width: 80%;
+                height: 30px;
+                font-size: 14px;
+                margin: 0 auto;
+                margin-bottom: 12px;
+                text-align: center;
+                border: none;
+                border-radius: 5px;
+                box-shadow: 0px 0px 15px 3px rgb(65, 71, 65);
+            }
+
+            button{
+                width: 60%;
+                display: block;
+                margin: 0 auto;
+                margin-top: 15px;
+                font-size: 20px;
+                padding: 8px 4px;
+                border: none;
+                border-radius: 5px;
+            }
+
+            #submit{
+                box-shadow: 0px 0px 15px 3px rgba(40,112,29,1);
+            }
+
+            #cancel{
+                box-shadow: 0px 0px 15px 3px rgba(217,24,33,1);
+            }
+        }
+    }
+}
+
