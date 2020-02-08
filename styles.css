@@ -1,12 +1,21 @@
 body {
   background: url("img/library.jpg") no-repeat center center fixed;
   background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 
 .wrapper {
   width: 96%;
-  margin: 40px auto;
+  margin: 0 auto;
+  padding: 40px 0;
   position: relative;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100vh;
 }
 
 .wrapper .theme {
@@ -61,7 +70,48 @@ body {
 .wrapper .books-container {
   float: right;
   width: 54%;
-  height: 600px;
+  height: auto;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-preferred-size: 150px;
+      flex-basis: 150px;
+}
+
+.wrapper .books-container .display-added-book {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30%;
+          flex: 0 0 30%;
+  height: 150px;
+  border: solid 1px #DDDDDD;
+  border-radius: 15px;
+  padding: 15px;
+  margin-top: 30px;
+  margin-right: 3.33%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #DDDDDD;
+  opacity: 0.9;
+  color: black;
+}
+
+.wrapper .books-container .display-added-book p {
+  font-weight: bold;
+  padding: 3px 0;
+}
+
+.wrapper .books-container .display-added-book p span {
+  font-weight: normal;
+}
+
+.wrapper .books-container .display-added-book:nth-child(3n) {
+  margin-right: 0;
 }
 
 .wrapper:after {
@@ -89,6 +139,10 @@ body {
 
 .wrapper .input-form form {
   margin: 30px 15px;
+}
+
+.wrapper .input-form form span i {
+  opacity: 0.9;
 }
 
 .wrapper .input-form form label {
@@ -148,12 +202,21 @@ body {
   border-radius: 5px;
 }
 
-.wrapper .input-form form #submit {
+.wrapper .input-form form #submit, .wrapper .input-form form #cancel {
+  -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
+          box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
+}
+
+.wrapper .input-form form #submit:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-box-shadow: 0px 0px 15px 3px #28701d;
           box-shadow: 0px 0px 15px 3px #28701d;
 }
 
-.wrapper .input-form form #cancel {
+.wrapper .input-form form #cancel:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
   -webkit-box-shadow: 0px 0px 15px 3px #d91821;
           box-shadow: 0px 0px 15px 3px #d91821;
 }

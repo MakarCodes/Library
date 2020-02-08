@@ -2,6 +2,7 @@ let myLibrary = [];
 const form = document.querySelector('form');
 const formDisplay = document.querySelector('.input-form');
 const addBookButton = document.querySelector('#add-new-book')
+let booksContainer = document.querySelector('.books-container');
 
 //constructor function - creating new book
 function Book(title, author, pages, year, read) {
@@ -18,6 +19,24 @@ const bookThree = new Book('Mężczyźni, którzy nienawidzą kobiet', 'Stieg La
 
 myLibrary.push(bookOne, bookTwo, bookThree);
 
+function render(){
+    let html = '';
+    myLibrary.forEach(book => {
+        html += `
+        <div class="display-added-book">
+            <p>Title: <span>${book.title}</span></p>
+            <p>Author: <span>${book.author}</span></p>
+            <p>Pages: <span>${book.pages}</span></p>
+            <p>Year of publication: <span>${book.year}</span></p>
+        </div>
+        `;
+    })
+    booksContainer.innerHTML = html;
+}
+
+render();
+
+
 addBookButton.addEventListener('click', () => {
     formDisplay.style.display = 'block';
 })
@@ -27,6 +46,7 @@ form.addEventListener('submit', (e) => {
     addBookToLibrary();
     console.log(myLibrary);
     formDisplay.style.display = 'none';
+    render();
 })
 
 function addBookToLibrary(){
