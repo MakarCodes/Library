@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   background: url("img/library.jpg") no-repeat center center fixed;
   background-size: cover;
@@ -50,6 +51,7 @@ body {
   opacity: 0.9;
   -webkit-box-shadow: 0px 0px 15px 3px #414741;
           box-shadow: 0px 0px 15px 3px #414741;
+  cursor: pointer;
 }
 
 .wrapper .theme #search {
@@ -135,26 +137,118 @@ body {
   -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
           box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
   display: none;
+  padding: 32px;
 }
 
-.wrapper .input-form form {
-  margin: 30px 15px;
+.wrapper .input-form .close-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
-.wrapper .input-form form span i {
-  opacity: 0.9;
+.wrapper .input-form ul {
+  margin-top: 30px;
 }
 
-.wrapper .input-form form label {
+.wrapper .input-form ul > li {
+  margin-bottom: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.wrapper .input-form button, .wrapper .input-form label, .wrapper .input-form input {
   display: block;
-  width: 60%;
-  font-size: 22px;
-  margin: 0 auto;
-  margin-bottom: 12px;
-  text-align: center;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  height: 30px;
 }
 
-.wrapper .input-form form .read-container {
+.wrapper .input-form label {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.wrapper .input-form input {
+  -webkit-box-shadow: inset 1px 1px 3px #ccc;
+          box-shadow: inset 1px 1px 3px #ccc;
+  border-radius: 5px;
+}
+
+.wrapper .input-form input:hover, .wrapper .input-form input:focus {
+  background-color: #eee;
+}
+
+.wrapper .input-form input + span {
+  position: relative;
+}
+
+.wrapper .input-form input:required + span::after {
+  font-size: 0.7rem;
+  position: absolute;
+  content: "required";
+  color: white;
+  background-color: black;
+  padding: 5px 10px;
+  top: -30px;
+  left: -70px;
+}
+
+.wrapper .input-form input + span::before {
+  position: absolute;
+  right: -20px;
+  top: 5px;
+}
+
+.wrapper .input-form input:invalid {
+  border: 1px solid red;
+}
+
+.wrapper .input-form input:invalid + span::before {
+  content: '✖';
+  color: red;
+}
+
+.wrapper .input-form input:valid + span::before {
+  content: '✓';
+  color: green;
+}
+
+.wrapper .input-form button {
+  width: 60%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 8px 4px;
+  border: solid 2px black;
+  border-radius: 5px;
+}
+
+.wrapper .input-form #submit:hover {
+  border: solid 2px green;
+  background-color: green;
+}
+
+.wrapper .input-form #cancel:hover {
+  border: solid 2px red;
+  background-color: red;
+}
+
+.wrapper .input-form .read-container {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -168,7 +262,7 @@ body {
           justify-content: center;
 }
 
-.wrapper .input-form form .read-container #read-label, .wrapper .input-form form .read-container #read {
+.wrapper .input-form .read-container #read-label, .wrapper .input-form .read-container #read {
   display: inline-block;
   width: 50px;
   margin: 0;
@@ -177,47 +271,7 @@ body {
           box-shadow: none;
 }
 
-.wrapper .input-form form input {
-  display: block;
-  width: 80%;
-  height: 30px;
-  font-size: 14px;
-  margin: 0 auto;
-  margin-bottom: 12px;
-  text-align: center;
-  border: none;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 15px 3px #414741;
-          box-shadow: 0px 0px 15px 3px #414741;
-}
-
-.wrapper .input-form form button {
-  width: 60%;
-  display: block;
-  margin: 0 auto;
-  margin-top: 15px;
-  font-size: 20px;
-  padding: 8px 4px;
-  border: none;
-  border-radius: 5px;
-}
-
-.wrapper .input-form form #submit, .wrapper .input-form form #cancel {
-  -webkit-box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
-          box-shadow: 0px 0px 30px 10px rgba(0, 0, 0, 0.61);
-}
-
-.wrapper .input-form form #submit:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-shadow: 0px 0px 15px 3px #28701d;
-          box-shadow: 0px 0px 15px 3px #28701d;
-}
-
-.wrapper .input-form form #cancel:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-box-shadow: 0px 0px 15px 3px #d91821;
-          box-shadow: 0px 0px 15px 3px #d91821;
+.wrapper .input-form .read-container #read {
+  margin-left: 10px;
 }
 /*# sourceMappingURL=styles.css.map */
