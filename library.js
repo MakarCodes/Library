@@ -5,9 +5,13 @@ const addBookButton = document.querySelector('#add-new-book')
 let booksContainer = document.querySelector('.books-container');
 const clearButton = document.querySelector('#cancel');
 const readCheckbox = document.querySelector('#read');
+const deleteButton = document.querySelector('.delete');
+
+
 
 //constructor function - creating new book
-function Book(title, author, pages, year, read) {
+function Book(id, title, author, pages, year, read) {
+    this.id = id;
     this.title = title;
     this.author = author;
     this.pages = pages;
@@ -15,14 +19,25 @@ function Book(title, author, pages, year, read) {
     this.read = read;
 }
 
-const bookOne = new Book('Lord of the Rings', 'J.R.R. Tolkien', 2564, 1954, true);
-const bookTwo = new Book('The Shadow of the wind', 'Carlos Ruiz Zafón', 598, 2001, true);
-const bookThree = new Book('Mężczyźni, którzy nienawidzą kobiet', 'Stieg Larsson', 456, 2005, true);
+const bookOne = new Book(0, 'Lord of the Rings', 'J.R.R. Tolkien', 2564, 1954, true);
+const bookTwo = new Book(1, 'The Shadow of the wind', 'Carlos Ruiz Zafón', 598, 2001, false);
+const bookThree = new Book(2, 'Mężczyźni, którzy nienawidzą kobiet', 'Stieg Larsson', 456, 2005, true);
 
 myLibrary.push(bookOne, bookTwo, bookThree);
-render();
+initRender();
 
 // event listeners
+
+booksContainer.addEventListener('click', e => {
+    if(e.target.classList.contains('delete'))
+    {
+        const currentId = e.target.parentElement.getAttribute('data-index');
+        myLibrary =  myLibrary.filter(book => {
+            return book.id != currentId;
+        })
+        e.target.parentElement.remove();
+    }
+})
 
 addBookButton.addEventListener('click', () => {
     formDisplay.style.display = 'block';
@@ -47,57 +62,57 @@ clearButton.addEventListener('click', e => {
     clearForm();
 })
 
-// functions
-
-function checkboxValidation(){
-    if(form.read.checked){
-        return true;
-    } else {
-        return false;
-    }
-}
-
 function clearForm(){
     form.reset();
 }
 
-function render(){
+function initRender() {
     let html = '';
-    myLibrary.forEach(book => {
-        //object restructuring
-        let {title, author, pages, year, read} = book;
-        html += generateHTML(title, author, pages, year, checkboxValidation());
+    myLibrary.forEach((book) => {
+        html += generateHTML(book);
     })
     booksContainer.innerHTML = html;
+    addedBook = document.querySelectorAll('.display-added-book');
+}
+
+function render(){
+    booksContainer.innerHTML += generateHTML(myLibrary[myLibrary.length-1]); 
+    addedBook = document.querySelectorAll('.display-added-book');
+}
+
+booksContainer.addEventListener('click', e => {
+    if(e.target.id == 'read-status'){
+        let index = e.target.parentElement.getAttribute('data-index');
+        const currentReadStatus = e.target.checked;
+        changeReadStatusInArray(index, currentReadStatus);
+    }
+})
+
+function changeReadStatusInArray(index, currentReadStatus){
+    console.log('before', myLibrary[index]);
+    myLibrary[index].read = !myLibrary[index].read;
+    console.log('after', myLibrary[index]);
 }
 
 
-function generateHTML(title, author, pages, year, read){
+function generateHTML({title, author, pages, year, read, id}){
     let html = '';
+    let checkStatus = '';
     if(read === true) {
-        html = `
-        <div class="display-added-book">
-            <p>Title: <span>${title}</span></p>
-            <p>Author: <span>${author}</span></p>
-            <p>Pages: <span>${pages}</span></p>
-            <p>Year of publication: <span>${year}</span></p>
-            <label for="r1" id="r1">Read status:</label>
-            <input type="checkbox" name="r1" id="r1" checked>
-        </div>
-        `;
-    } else if (read === false)  {
-        html = `
-        <div class="display-added-book">
-            <p>Title: <span>${title}</span></p>
-            <p>Author: <span>${author}</span></p>
-            <p>Pages: <span>${pages}</span></p>
-            <p>Year of publication: <span>${year}</span></p>
-            <label for="r2" id="r2">Read status:</label>
-            <input type="checkbox" name="r2" id="r2">
-        </div>
-        `;
-    }
+        checkStatus = 'checked';
+    } 
 
+    html = `
+    <div class="display-added-book" data-index="${id}">
+        <p>Title: <span>${title}</span></p>
+        <p>Author: <span>${author}</span></p>
+        <p>Pages: <span>${pages}</span></p>
+        <p>Year of publication: <span>${year}</span></p>
+        <label for="read-status" id="read-status">Read status:</label>
+        <input type="checkbox" name="read-status" id="read-status" ${checkStatus}>
+        <button class="delete">Delete</button>
+    </div>
+    `;
     return html;
 }
 
@@ -108,7 +123,8 @@ function addBookToLibrary(){
     const numberOfPages = document.querySelector('#pages');
     const yearOfPublication = document.querySelector('#year');
     const readStatus = document.querySelector('#read');
-    let book = new Book (titleName.value, authorName.value, numberOfPages.value, yearOfPublication.value, readStatus.value);
+    const newBookId = myLibrary.length;
+    let book = new Book (newBookId, titleName.value, authorName.value, numberOfPages.value, yearOfPublication.value, form.read.checked);
     myLibrary.push(book);
 }
 
