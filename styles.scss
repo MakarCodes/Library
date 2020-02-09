@@ -54,6 +54,7 @@ body {
             background-color: $themeColor;
             opacity: 0.9;
             box-shadow: 0px 0px 15px 3px rgb(65, 71, 65);
+            cursor: pointer;
         }
 
         #search {
@@ -123,74 +124,128 @@ body {
         opacity: 0.9;
         box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.61);
         display: none;
+        padding: 32px;
 
-        form{
-            margin: 30px 15px;
+        .close-icon{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
-            span i{
-               opacity: 0.9;
-            }
+        ul{
+            margin-top: 30px;
+        }
+
+        ul > li {
+            margin-bottom: 15px;
+            display: flex;
+            flex-flow: row wrap;
+          }
+
+        button, label, input {
+            display: block;
+            font-family: inherit;
+            font-size: 100%;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px;
+            height: 30px;
+          }
+
+          label {
+              font-size: 22px;
+              font-weight: bold;
+              margin-bottom: 8px;
+          }
+
+          input {
+            box-shadow: inset 1px 1px 3px #ccc;
+            border-radius: 5px;
+          }
+    
+          input:hover, input:focus {
+            background-color: #eee;
+          }
+    
+          input + span {
+            position: relative;
+          }
+    
+          input:required + span::after {
+            font-size: 0.7rem;
+            position: absolute;
+            content: "required";
+            color: white;
+            background-color: black;
+            padding: 5px 10px;
+            top: -30px;
+            left: -70px;
+          }
+    
+          input + span::before {
+            position: absolute;
+            right: -20px;
+            top: 5px;
+          }
+    
+          input:invalid {
+            border: 1px solid red;
+            // box-shadow: 0px 0px 3px 1px rgba(217,24,33,1);
+          }
+    
+          input:invalid + span::before {
+            content: '✖';
+            color: red;
+          }
+    
+          input:valid + span::before {
+            content: '✓';
+            color: green;
+          }
+    
+          button{
+            width: 60%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 8px 4px;
+            border: solid 2px black;
+            border-radius: 5px;
+        }
+
+        #submit:hover {
+            border: solid 2px green;
+            background-color: green;
+            // box-shadow: 0px 0px 15px 3px rgba(40,112,29,1);
+        }
+
+        #cancel:hover {
+            border: solid 2px red;
+            background-color: red;
+            // box-shadow: 0px 0px 15px 3px rgba(217,24,33,1);
+        }
+
+        .read-container {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
             
-            label{
-                display: block;
-                width: 60%;
-                font-size: 22px;
-                margin: 0 auto;
-                margin-bottom: 12px;
-                text-align: center;
-            }
-
-            .read-container{
-                display: flex;
-                flex-wrap: nowrap;
-                align-items: center;
-                justify-content: center;
-                
-                #read-label, #read{
-                   display: inline-block;
-                   width: 50px;
-                   margin: 0;
-                   padding: 2px 6px;
-                   box-shadow: none;
-                }
-            }
-        
-
-            input{
-                display: block;
-                width: 80%;
-                height: 30px;
-                font-size: 14px;
-                margin: 0 auto;
-                margin-bottom: 12px;
-                text-align: center;
-                border: none;
-                border-radius: 5px;
-                box-shadow: 0px 0px 15px 3px rgb(65, 71, 65);
-            }
-
-            button{
-                width: 60%;
-                display: block;
-                margin: 0 auto;
-                margin-top: 15px;
-                font-size: 20px;
-                padding: 8px 4px;
-                border: none;
-                border-radius: 5px;
-            }
-            #submit, #cancel{
-                box-shadow: 0px 0px 30px 10px rgba(0,0,0,0.61);
-            }
-
-            #submit:hover{
+            #read-label, #read {
+                display: inline-block;
+                width: 50px;
+                margin: 0;
+                padding: 2px 6px;
                 box-shadow: none;
-                box-shadow: 0px 0px 15px 3px rgba(40,112,29,1);
             }
 
-            #cancel:hover{
-                box-shadow: none;
-                box-shadow: 0px 0px 15px 3px rgba(217,24,33,1);
+            #read {
+                margin-left: 10px;
             }
         }
     }
