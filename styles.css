@@ -112,6 +112,14 @@ body {
   font-weight: normal;
 }
 
+.wrapper .books-container .display-added-book .delete {
+  color: white;
+  background-color: black;
+  border: none;
+  margin-left: 20px;
+  border-radius: 3px;
+}
+
 .wrapper .books-container .display-added-book:nth-child(3n) {
   margin-right: 0;
 }

@@ -103,6 +103,14 @@ body {
                     font-weight: normal;
                 }
             }
+
+            .delete {
+                color: white;
+                background-color: black;
+                border: none;
+                margin-left: 20px;
+                border-radius: 3px;
+            }
         }
         .display-added-book:nth-child(3n){
             margin-right: 0;
