@@ -1,5 +1,5 @@
 let myLibrary = [];
-const form = document.querySelector('form');
+const form = document.querySelector('.adding-book-form');
 const formDisplay = document.querySelector('.input-form');
 const addBookButton = document.querySelector('#add-new-book')
 let booksContainer = document.querySelector('.books-container');

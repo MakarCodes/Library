@@ -44,6 +44,33 @@ body {
                 color: $themeColor;
             }
         }
+
+        .filtering-section{
+            color: $themeColor;
+            margin-top: 20px;
+            width: 450px;
+            font-size: 20px;
+    
+            fieldset {
+                border: solid 1px white;
+                legend{
+                    margin-left: 15px;
+                    margin-bottom: 15px;
+                }
+
+                ul.filtering-list {
+                        padding: 8px;
+                        padding-top: 0;
+
+                        li{
+                            padding: 5px 0;
+                            font-size: 24px;
+                        }
+                }
+            }
+        }
+        
+
         #add-new-book {
             margin: 15px 0;
             padding: 12px 10px;

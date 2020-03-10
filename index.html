@@ -14,15 +14,34 @@
         <div class="theme">
             <h1>Fantastic. Library.</h1>
             <p><q>A reader lives a thousand lives before he dies . . .<br> The man who never reads lives only one.</q><br>– George R.R. Martin</p>
+            <div class="filtering-section">
+                <!-- <p>Please select what You want to filter books through: </p> -->
+                <form class="filtering">
+                    <fieldset>
+                        <legend>Please select what You want to filter books through</legend>
+                        <ul class="filtering-list">
+                            <li>
+                                <input type="checkbox" value="author">
+                                <label for="author-checkbox">authors</label>
+                            </li>
+                            <li>
+                                <input type="checkbox" value="title">
+                                <label for="title-checkbox">titles</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </form>
+            </div>
             <div class="search-button">
                 <input type="text" placeholder="Search..." id="search">
             </div>
             <button type= "submit" id="add-new-book">Add New Book</button>
+            
         </div>
         <div class="books-container"></div>
 
         <div class="input-form">
-            <form>
+            <form class="adding-book-form">
                 <span class="close-icon">
                     <i class="fas fa-window-close fa-2x"></i>
                 </span>

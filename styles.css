@@ -40,6 +40,32 @@ body {
   color: #DDDDDD;
 }
 
+.wrapper .theme .filtering-section {
+  color: #DDDDDD;
+  margin-top: 20px;
+  width: 450px;
+  font-size: 20px;
+}
+
+.wrapper .theme .filtering-section fieldset {
+  border: solid 1px white;
+}
+
+.wrapper .theme .filtering-section fieldset legend {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.wrapper .theme .filtering-section fieldset ul.filtering-list {
+  padding: 8px;
+  padding-top: 0;
+}
+
+.wrapper .theme .filtering-section fieldset ul.filtering-list li {
+  padding: 5px 0;
+  font-size: 24px;
+}
+
 .wrapper .theme #add-new-book {
   margin: 15px 0;
   padding: 12px 10px;
