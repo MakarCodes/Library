@@ -172,8 +172,7 @@ function addBookToLibrary(){
 
 function bookFilteringByAuthor(userText) {
     let filteredArrayByAuthors = myLibrary.filter(singleBook => 
-        singleBook.author.toLowerCase().includes(userText) || 
-        singleBook.title.toLowerCase().includes(userText));
+        singleBook.author.toLowerCase().includes(userText));
     filterRender(filteredArrayByAuthors);
     
 }
@@ -183,18 +182,21 @@ function bookFilteringByTitle(userText) {
     filterRender(filteredArrayByTitles);
 }
 
+const checkboxAuthor = document.querySelector('#author-checkbox');
+const checkboxTitle = document.querySelector('#title-checkbox');
+
 search.addEventListener('keyup', e => {
     userText = search.value.trim().toLowerCase(); 
-    bookFilteringByAuthor(userText);
-    // bookFilteringByTitle(userText);
+    if(checkboxAuthor.checked == true) {
+        bookFilteringByAuthor(userText);
+        console.log('hej')
+    } else if (checkboxTitle.checked == true) {
+        bookFilteringByTitle(userText);
+    } else {
+        bookFilteringByAuthor(userText);
+        bookFilteringByTitle(userText);
+    }
     
 });
 
-
-    // jakaś funkcja filtrująca z parametrem propertiesArray i iteruje po tej tablicy 
-    //w poszukiwaniu "matchów" w zadeklarowanych propertiesach.
-
-
-   // 1. Filtrowanie warunkowe: filtrujemy tablice wszystkich książek i zwracamy rekord jeśli jest "match" w property author LUB proerty title
-    // 2. Odfiltrowanie powtarzających się elementów z tablicy (Lodash (_.uniq))
 
